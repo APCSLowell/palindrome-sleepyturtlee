@@ -38,12 +38,32 @@ public void tester()
 public boolean palindrome(String word)
 {
   //your code here
+  // checks if the reverse of the word is the same as the word
+  if(reverse(noSpacesNoPunct(word)).equals(noSpacesNoPunct(word))) {
+    return true;
+  }
   return false;
 }
 public String reverse(String str)
 {
     String sNew = new String();
     //your code here
+    // reverses the string
+    for(int i = str.length()-1; i >= 0; i--) {
+      sNew = sNew + str.substring(i, i+1);
+    }
     return sNew;
+}
+  // helper function I made
+  public String noSpacesNoPunct(String str) {
+  String coolWord = new String();
+  // rid the string of spaces
+  for(int i = 0; i < str.length(); i++) {
+    // if the letter is not a space and if it is a letter (not punctuation)
+    if(!str.substring(i, i+1).equals(" ") && Character.isLetter(str.charAt(i))) {
+      coolWord = coolWord + str.substring(i, i+1).toLowerCase();
+    }
+  }
+  return coolWord;
 }
 }
